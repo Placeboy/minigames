@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Texas Hold'em</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Texas Hold'em</h1>
+
+  <div class="table-wrapper">
+    <div class="table">
+      <div class="info-bar">
+        <span id="pot-display">Pot: $0</span>
+        <span id="stage-display">—</span>
+      </div>
+      <div id="community" class="community-cards"></div>
+    </div>
+  </div>
+
+  <div id="message"></div>
+
+  <div class="players-row">
+    <div id="player-0" class="player-area">
+      <div class="player-header">
+        <span id="name-0" class="player-name"></span>
+        <span id="chips-0" class="player-chips"></span>
+      </div>
+      <div id="hole-0" class="player-hole"></div>
+      <div id="status-0" class="player-status"></div>
+    </div>
+    <div id="player-1" class="player-area">
+      <div class="player-header">
+        <span id="name-1" class="player-name"></span>
+        <span id="chips-1" class="player-chips"></span>
+      </div>
+      <div id="hole-1" class="player-hole"></div>
+      <div id="status-1" class="player-status"></div>
+    </div>
+    <div id="player-2" class="player-area">
+      <div class="player-header">
+        <span id="name-2" class="player-name"></span>
+        <span id="chips-2" class="player-chips"></span>
+      </div>
+      <div id="hole-2" class="player-hole"></div>
+      <div id="status-2" class="player-status"></div>
+    </div>
+    <div id="player-3" class="player-area">
+      <div class="player-header">
+        <span id="name-3" class="player-name"></span>
+        <span id="chips-3" class="player-chips"></span>
+      </div>
+      <div id="hole-3" class="player-hole"></div>
+      <div id="status-3" class="player-status"></div>
+    </div>
+  </div>
+
+  <div id="actions" class="actions-area">
+    <button id="start-btn" class="btn btn-primary">Start Game</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
