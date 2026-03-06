@@ -1,0 +1,302 @@
+/* ============================================================
+   Texas Hold'em – styles
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: #0b3d0b;
+  color: #e8e8e8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin: 16px 0 4px;
+  font-size: 1.6rem;
+  letter-spacing: 0.03em;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* ---------- table layout ---------- */
+.table-wrapper {
+  width: 100%;
+  max-width: 900px;
+  padding: 12px;
+}
+
+.table {
+  background: radial-gradient(ellipse at center, #1a6b1a 0%, #0e4a0e 100%);
+  border: 6px solid #3a2a1a;
+  border-radius: 160px;
+  box-shadow:
+    inset 0 0 40px rgba(0, 0, 0, 0.35),
+    0 8px 30px rgba(0, 0, 0, 0.6);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-height: 320px;
+}
+
+/* ---------- info bar ---------- */
+.info-bar {
+  display: flex;
+  gap: 24px;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+#pot-display {
+  color: #ffd700;
+}
+
+#stage-display {
+  color: #a0d8a0;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+/* ---------- community cards ---------- */
+.community-cards {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- cards ---------- */
+.card {
+  width: 58px;
+  height: 82px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.card.black {
+  background: #fff;
+  color: #1a1a1a;
+}
+
+.card.red {
+  background: #fff;
+  color: #c0392b;
+}
+
+.card .suit {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.card-back {
+  background: linear-gradient(135deg, #1a3a8a 0%, #2c5cc5 50%, #1a3a8a 100%);
+  border: 2px solid #4a6aaa;
+}
+
+.card-placeholder {
+  background: rgba(255, 255, 255, 0.06);
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+}
+
+/* ---------- players ---------- */
+.players-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 100%;
+  max-width: 900px;
+  padding: 0 12px;
+}
+
+.player-area {
+  background: rgba(0, 0, 0, 0.35);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.player-area.active-player {
+  border-color: #ffd700;
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.4);
+}
+
+.player-area.folded-player {
+  opacity: 0.45;
+}
+
+.player-area.winner-player {
+  border-color: #27ae60;
+  box-shadow: 0 0 16px rgba(39, 174, 96, 0.5);
+}
+
+.player-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player-name {
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.player-chips {
+  color: #ffd700;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.player-hole {
+  display: flex;
+  gap: 6px;
+}
+
+.player-status {
+  font-size: 0.8rem;
+  color: #a0d8a0;
+  min-height: 1.1em;
+}
+
+/* ---------- message ---------- */
+#message {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #ffd700;
+  min-height: 1.4em;
+  padding: 4px 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- actions ---------- */
+.actions-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 12px 20px;
+  min-height: 56px;
+}
+
+.btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.1s, filter 0.15s;
+}
+
+.btn:hover {
+  filter: brightness(1.12);
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+.btn-primary {
+  background: #27ae60;
+  color: #fff;
+}
+
+.btn-danger {
+  background: #c0392b;
+  color: #fff;
+}
+
+.btn-warning {
+  background: #e67e22;
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #555;
+  color: #ddd;
+}
+
+/* ---------- raise controls ---------- */
+.raise-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.raise-slider {
+  width: 140px;
+  accent-color: #e67e22;
+}
+
+.raise-label {
+  font-size: 0.85rem;
+  min-width: 90px;
+  color: #ffd700;
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  .table {
+    border-radius: 40px;
+    padding: 16px 10px;
+    border-width: 4px;
+  }
+
+  .players-row {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    width: 46px;
+    height: 66px;
+    font-size: 0.95rem;
+    border-radius: 6px;
+  }
+
+  .card .suit {
+    font-size: 1.05rem;
+  }
+
+  .btn {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  .raise-slider {
+    width: 100px;
+  }
+
+  .info-bar {
+    gap: 14px;
+    font-size: 0.95rem;
+  }
+}
