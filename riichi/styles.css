@@ -1,0 +1,319 @@
+/* ── Riichi Mahjong Hand Practice – Styles ─────────────────────────────────── */
+
+:root {
+  --bg: #1a1e2e;
+  --surface: #242940;
+  --surface2: #2e3450;
+  --border: #3a4060;
+  --text: #e0e0e0;
+  --text-dim: #8890a8;
+  --accent: #5b8def;
+  --man: #e06060;
+  --pin: #50a0e0;
+  --sou: #50b870;
+  --honor: #d0c870;
+  --hatsu: #40c060;
+  --chun: #e04040;
+  --tenpai: #f0c040;
+  --won: #50e080;
+  --draw-game: #a0a0a0;
+  --tile-bg: #f5f0e0;
+  --tile-border: #c0b890;
+  --tile-shadow: rgba(0,0,0,0.3);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Header ─────────────────────────────────────────────────────────────────── */
+
+header {
+  width: 100%;
+  max-width: 900px;
+  padding: 1.2rem 1rem 0.6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+header h1 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+header h1 span {
+  color: var(--accent);
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+button {
+  background: var(--surface2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+button:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+#tsumo-btn {
+  background: var(--won);
+  border-color: var(--won);
+  color: #1a1e2e;
+  font-weight: 700;
+  display: none;
+}
+
+#tsumo-btn:hover {
+  background: #70f0a0;
+  border-color: #70f0a0;
+}
+
+/* ── Status bar ─────────────────────────────────────────────────────────────── */
+
+.status-bar {
+  width: 100%;
+  max-width: 900px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.status-tag {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.status-tag.playing { background: var(--surface2); color: var(--text-dim); }
+.status-tag.tenpai  { background: var(--tenpai); color: #1a1e2e; }
+.status-tag.won     { background: var(--won); color: #1a1e2e; }
+.status-tag.draw    { background: var(--draw-game); color: #1a1e2e; }
+
+.stats {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+.stats span strong {
+  color: var(--text);
+}
+
+#message {
+  width: 100%;
+  max-width: 900px;
+  padding: 0.3rem 1rem 0.6rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  min-height: 1.5em;
+}
+
+/* ── Game area ──────────────────────────────────────────────────────────────── */
+
+.game-area {
+  width: 100%;
+  max-width: 900px;
+  padding: 0 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.section-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  margin-bottom: 0.3rem;
+}
+
+/* ── Tiles ──────────────────────────────────────────────────────────────────── */
+
+.tile-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: flex-end;
+  min-height: 70px;
+}
+
+.tile {
+  width: 44px;
+  height: 62px;
+  background: var(--tile-bg);
+  border: 2px solid var(--tile-border);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px var(--tile-shadow);
+  user-select: none;
+  transition: transform 0.12s, box-shadow 0.12s, border-color 0.12s;
+  position: relative;
+}
+
+.tile-label {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.tile-suit {
+  font-size: 0.55rem;
+  margin-top: 1px;
+  opacity: 0.7;
+}
+
+/* Suit colours */
+.tile-man .tile-label { color: var(--man); }
+.tile-pin .tile-label { color: var(--pin); }
+.tile-sou .tile-label { color: var(--sou); }
+.tile-honor .tile-label { color: var(--honor); }
+.tile-hatsu .tile-label { color: var(--hatsu); }
+.tile-chun .tile-label  { color: var(--chun); }
+
+.tile-man .tile-suit { color: var(--man); }
+.tile-pin .tile-suit { color: var(--pin); }
+.tile-sou .tile-suit { color: var(--sou); }
+
+/* Interactive */
+.tile.clickable {
+  cursor: pointer;
+}
+
+.tile.clickable:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 12px var(--tile-shadow);
+  border-color: var(--accent);
+  z-index: 2;
+}
+
+.tile.draw-tile {
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(91, 141, 239, 0.4);
+  margin-left: 12px;
+}
+
+.tile.draw-tile.clickable:hover {
+  border-color: var(--man);
+}
+
+/* Small tiles for discards / waits */
+.tile.tile-small {
+  width: 30px;
+  height: 42px;
+}
+
+.tile.tile-small .tile-label {
+  font-size: 0.9rem;
+}
+
+.tile.tile-small .tile-suit {
+  font-size: 0.45rem;
+}
+
+.tile.dim {
+  opacity: 0.55;
+}
+
+.tile.wait-tile {
+  border-color: var(--tenpai);
+  box-shadow: 0 0 6px rgba(240, 192, 64, 0.35);
+}
+
+.tile.highlight {
+  border-color: var(--won);
+  box-shadow: 0 0 8px rgba(80, 224, 128, 0.4);
+}
+
+/* ── Sections ───────────────────────────────────────────────────────────────── */
+
+.hand-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.8rem;
+}
+
+.hand-row {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.discard-section, .wait-section {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.8rem;
+}
+
+.wait-section {
+  border-color: var(--tenpai);
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────────── */
+
+footer {
+  width: 100%;
+  max-width: 900px;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+/* ── Responsive ─────────────────────────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  header { padding: 0.8rem 0.6rem 0.4rem; }
+  header h1 { font-size: 1.1rem; }
+  .game-area { padding: 0 0.6rem 0.6rem; }
+  .tile { width: 34px; height: 50px; }
+  .tile-label { font-size: 1.05rem; }
+  .tile-suit { font-size: 0.45rem; }
+  .tile.tile-small { width: 24px; height: 34px; }
+  .tile.tile-small .tile-label { font-size: 0.72rem; }
+  .tile.tile-small .tile-suit { font-size: 0.38rem; }
+  .tile.draw-tile { margin-left: 6px; }
+  .stats { gap: 0.6rem; font-size: 0.75rem; }
+}
+
+@media (max-width: 380px) {
+  .tile { width: 28px; height: 42px; }
+  .tile-label { font-size: 0.9rem; }
+  .tile.tile-small { width: 20px; height: 28px; }
+  .tile.tile-small .tile-label { font-size: 0.6rem; }
+}

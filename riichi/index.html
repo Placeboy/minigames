@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riichi Mahjong – Hand Practice</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1><span>麻雀</span> Riichi Hand Practice</h1>
+    <div class="controls">
+      <button id="tsumo-btn">Tsumo!</button>
+      <button id="restart-btn">New Hand</button>
+    </div>
+  </header>
+
+  <div class="status-bar">
+    <span id="status-tag" class="status-tag playing">—</span>
+    <div class="stats">
+      <span>Turn: <strong id="turns">0</strong></span>
+      <span>Wall: <strong id="wall-count">0</strong></span>
+      <span>Discards: <strong id="discard-count">0</strong></span>
+    </div>
+  </div>
+
+  <p id="message">Loading…</p>
+
+  <div class="game-area">
+
+    <!-- Hand + Draw -->
+    <div class="hand-section">
+      <div class="section-label">Your Hand (click a tile to discard)</div>
+      <div class="hand-row">
+        <div id="hand" class="tile-row"></div>
+        <div id="draw-tile" class="tile-row"></div>
+      </div>
+    </div>
+
+    <!-- Tenpai waits -->
+    <div class="wait-section" id="wait-section">
+      <div class="section-label">Waiting on</div>
+      <div id="waits" class="tile-row"></div>
+    </div>
+
+    <!-- Discards -->
+    <div class="discard-section">
+      <div class="section-label">Discard Pool</div>
+      <div id="discards" class="tile-row"></div>
+    </div>
+
+  </div>
+
+  <footer>
+    Riichi Mahjong Hand Trainer — simplified rules (4 mentsu + jantai / chiitoitsu / kokushi)
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
